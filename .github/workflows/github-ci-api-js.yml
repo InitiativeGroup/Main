@@ -1,19 +1,19 @@
-name: Client CI
+name: API-JS CI
 
 on:
   push:
     branches: [ "master", "dev" ]
     paths:
-      - 'packages/client/**'
+      - 'packages/api-js/**'
   pull_request:
     branches: [ "master", "dev" ]
     paths:
-      - 'packages/client/**'
+      - 'packages/api-js/**'
   workflow_dispatch:
 
 jobs:
   ci:
-    name: Client CI
+    name: API-JS CI
     runs-on: ubuntu-latest
 
     strategy:
@@ -31,12 +31,12 @@ jobs:
           node-version: ${{ matrix.node-version }}
       -
         name: Installing dependencies
-        run: yarn
+        run: yarn install
       -
         name: Building
-        working-directory: ./packages/client
+        working-directory: ./packages/api-js
         run: yarn build
       -
         name: Testing
-        working-directory: ./packages/client
+        working-directory: ./packages/api-js
         run: yarn test
