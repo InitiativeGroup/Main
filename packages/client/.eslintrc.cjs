@@ -1,7 +1,9 @@
 module.exports = {
   extends: [
     "../../.eslintrc",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "react-app",
+    "react-app/jest"
   ],
   env: {
     browser: true

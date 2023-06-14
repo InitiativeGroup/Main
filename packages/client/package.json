@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "main": "dist/index.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -15,12 +16,6 @@
     "slint:fix": "stylelint --fix src/ --allow-empty-input",
     "pre-commit": "lint-staged",
     "pre-push": "yarn lint:fix src/**/*.{ts,tsx} && yarn format src/**/*.{ts,tsx} && yarn test:no-watch && yarn slint:fix src/**/*.scss"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
