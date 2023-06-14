@@ -1,0 +1,31 @@
+name: Java CI
+
+on:
+  push:
+    branches: [ "master", "dev" ]
+    paths:
+      - 'packages/api-java/**'
+  pull_request:
+    branches: [ "master", "dev" ]
+    paths:
+      - 'packages/api-java/**'
+  workflow_dispatch:
+
+jobs:
+  ci:
+    name: API-JAVA CI
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: Building
+        working-directory: ./packages/api-java
+        run: yarn build
+      - name: Testing
+        working-directory: ./packages/api-java
+        run: yarn test

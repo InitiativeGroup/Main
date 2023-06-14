@@ -1,0 +1,12 @@
+{
+  "name": "api-java",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "mvn --batch-mode --update-snapshots package",
+    "test": "mvn test",
+    "pre-commit": "yarn test",
+    "pre-push": "yarn test"
+  }
+}
